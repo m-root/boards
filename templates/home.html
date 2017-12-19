@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{#<!DOCTYPE html>#}
+{#<html>#}
+
+{#   <body>#}
+<div class="row">
+<div class="col-md-12">
+    {% block breadcrumb %}
+     <li class="breadcrumb-item active">Boards</li>
+   {% endblock %}
+   {% block content %}
+         <table class="table ">
+            <thead class="thead-dark">
+               <tr>
+                 <th>Board</th>
+                  <th>Posts</th>
+                  <th>Topics</th>
+                  <th>Last Post</th>
+               </tr>
+            </thead>
+            <tbody>
+{% for board in boards %}
+               <tr>
+                  <td>
+                     <a href="{% url 'board_topics' board_name.pk %}">{{ boards.name }}</a>
+                     <small class="text-muted d-block">{{ boards.description }}</small>
+                  </td>
+                  <td class="align-middle">0</td>
+                  <td class="align-middle">0</td>
+                  <td></td>
+               </tr>
+{% endfor %}
+            </tbody>
+         </table>
+   {% endblock %}
+      </div>
+</div>
+{#   </body>#}
+{#</html>#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
