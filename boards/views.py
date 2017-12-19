@@ -28,9 +28,9 @@ def board_topics(request, pk):
     # except Board.DoesNotExist:
     #     raise Http404
     # return render(request, 'topics.html', {'board':board})
-
+    # topics = Topic.objects.all()
     board_topics = get_object_or_404(Board, pk=pk)
-    return render(request, 'topics.html', {'board_name':board_topics})
+    return render(request, 'topics.html', {'board_topics':board_topics})
 
 def new_topics(request, pk):
     board = get_object_or_404(Board, pk=pk)
@@ -54,6 +54,6 @@ def new_topics(request, pk):
             created_by=user
         )
 
-        return redirect('board_topics', pk=board.pk) #TODO: redirect to the created page
+        return redirect('board', pk=board.pk) #TODO: redirect to the created page
     return render(request, 'new_topic.html', {'board':board})
 
