@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'boards',
     # 'static',
+    'widget_tweaks',
+    # 'django-bootstrap3'
 ]
 
 MIDDLEWARE = [
