@@ -12,6 +12,7 @@ class Board(models.Model):
 
 class Topic(models.Model):
     subject = models.CharField(max_length=255)
+    # message = models.TextField(max_length=100)
     last_updated = models.DateTimeField(auto_now_add=True)
     board_name = models.ForeignKey(Board, related_name='topics', on_delete=models.CASCADE)
     starter = models.ForeignKey(User, related_name='topics', on_delete=models.CASCADE)
