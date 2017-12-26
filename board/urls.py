@@ -24,7 +24,8 @@ from boards import views
 urlpatterns = [
     url(r'^$', views.home, name='home'),
     url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
-    url(r'^boards/(?P<pk>\d+)/new/$', views.new_topics, name='board_topics_new'),
+    url(r'^boards/(?P<pk>\d+)/new/$', views.new_topic, name='board_topics_new'),
+    # url(r'^boards/(?P<pk>\d+)/$', views.view_topics, name='board_view'),
     path('admin/', admin.site.urls),
 # ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
