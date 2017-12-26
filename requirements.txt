@@ -21,3 +21,4 @@ six==1.11.0
 tensorflow==1.4.1
 tensorflow-tensorboard==0.4.0rc3
 Werkzeug==0.12.2
+django-bootstrap3
