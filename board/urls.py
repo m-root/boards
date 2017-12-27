@@ -17,12 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import static
-
+from accounts import views as accounts_views
 from board import settings
 from boards import views
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
+    url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
     url(r'^boards/(?P<pk>\d+)/new/$', views.new_topic, name='board_topics_new'),
     # url(r'^boards/(?P<pk>\d+)/$', views.view_topics, name='board_view'),
