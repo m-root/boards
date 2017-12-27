@@ -37,9 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts'
+    'accounts',
     'boards',
-    # 'static',
     'widget_tweaks',
 
 ]
@@ -68,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.static',
             ],
         },
     },
@@ -135,14 +135,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# STATIC_URL = '/static/'
-
-STATICFILES_DIR = [
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    "home/geek/PycharmProjects/board1/static/",
 ]
+
+
+PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
+
 
 STATICFILES_FINDERS =[
     'django.contrib.staticfiles.finders.FileSystemFinder',
