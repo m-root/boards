@@ -1,43 +1,66 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} Django Boards {% endblock %}</title>
-{#    <link rel="stylesheet" href="static/css/bootstrap.min.css">#}
-{#    <link rel="stylesheet" href="static 'css/bootstrap.min.css'" type="text/css">#}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
- <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <!--static/css/bootstrap.min.css-->
-    <!--/home/geek/PycharmProjects/boards/static/css/bootstrap.min.css-->
-<style>
-    body {
-        font-family: 'Montserrat', serif;
-        font-size: 14px;
-      }
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" crossorigin="anonymous">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    {% block stylesheet %}
 
-</style>
+
+    {% endblock %}
 </head>
+
 <body>
-    <nav class="navbar navbar-inverse bg-primary" style="background-color: #007bff;">
+    {% block body %}
+    <nav class="navbar navbar-expand-lg navbar-custom navbar-inverse bg-primary">
         <div class="container">
-            <a class="navbar-brand"  href="{% url 'home' %}"> Django Boards </a>
+            <a class="navbar-brand a-text" href="{% url 'home' %}">Django Boards</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+
+                </ul>
+                <div>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle a-text" href="{{ user.username }}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              {{ user.username }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-style" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">{{ user.username }}</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something here</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>
+
     <div class="container">
-    <div class="row">
-    <div class="col-md-12">
-        <ol class="breadcrumb my-4">
-            {% block breadcrumb %}
-            {% endblock %}
-        </ol>
-        {% block content %}
-        {% endblock %}
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb my-4">
+                    {% block breadcrumb %} {% endblock %}
+                </ol>
+                {% block content %} {% endblock %}
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
+    {% endblock body %}
 </body>
+<script src="{% static 'js/jquery-3.2.1.slim.min.js'  %}" crossorigin="anonymous"></script>
+<script src="{% static 'js/popper.min.js'  %}" crossorigin="anonymous"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" crossorigin="anonymous"></script>
+
 </html>
-
-
-
