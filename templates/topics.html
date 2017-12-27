@@ -32,7 +32,7 @@
         {% for topic in board_topics.topics.all %}
 
             <tr>
-                <td><a href="{{ topic.subject }}">{{ topic.subject }}</a></td>
+                <td><a href="{{ topic.pk }}">{{ topic.subject }}</a></td>
                 <td>{{ topic.starter.userame }}</td>
                 <td>0</td>
                 <td>0</td>
