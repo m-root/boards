@@ -1,11 +1,14 @@
 from django.test import TestCase
 from django.urls import resolve
 from django.test import TestCase
-from .views import signup
+from accounts.views import signup
 from django.core.urlresolvers import reverse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .forms import SignUpForm
+from accounts.forms import SignUpForm
+from ..views import signup
+from ..forms import SignUpForm
+
 
 class SignUpTest(TestCase):
     def test_signup_status_code(self):
@@ -23,6 +26,18 @@ class SignUpTest(TestCase):
     def test_contains_form(self):
         form = self.response.context.get('form')
         self.assertIsInstance(form, SignUpForm)
+
+    def test_inputs(self):
+        '''
+        this view must contain 5 fields.
+        csrf, username, email, password, password2
+        :return:
+        '''
+
+        self.assertContains(self.response, '<input', 5)
+        self.assertContains(self.response, 'type = "text"', 1)
+        self.assertContains(self.response, 'type = "email"',1)
+        self.assertContains(self.response, 'type = "password"',2)
 
 class SuccessfulSignUpTest(TestCase):
     def setUp(self):
