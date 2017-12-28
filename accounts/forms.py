@@ -59,10 +59,6 @@ class SignUpForm(forms.ModelForm):
         return self.cleaned_data
 
 
-
-# class SignUpForm(UserCreationForm):
-#     email = forms.CharField(max_length=254, required=True, widget=forms.EmailInput())
-#
-#     class Meta:
-#         model = User
-#         fields = ('username', 'email', 'password1', 'password2')
+class LoginForm(forms.ModelForm):
+    email = forms.CharField(max_length=254, required=True, widget=forms.EmailInput())
+    password = forms.CharField(widget=forms.PasswordInput())
