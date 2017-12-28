@@ -1,67 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
-{#<!DOCTYPE html>#}
-{#<html>#}
+{% block title %}
+    {{ board.name }} - {{ block.super }}
+{% endblock %}
 
-{#   <body>#}
-<div class="row">
-<div class="col-md-12">
-    {% block breadcrumb %}
-     <li class="breadcrumb-item active">Boards</li>
-   {% endblock %}
-   {% block content %}
-         <table class="table ">
-            <thead class="thead-dark">
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}"> Boards</a></li>
+{% endblock %}
+
+{% block content %}
+        <table class="table ">
+            <thead class="thead-inverse">
                <tr>
-                 <th>Board</th>
-                  <th>Posts</th>
-                  <th>Topics</th>
+                  <th>Board</th>
+                  <th>Subject</th>
+                  <th>Starter</th>
                   <th>Last Post</th>
                </tr>
             </thead>
             <tbody>
-{% for board in boards %}
-               <tr>
-                  <td>
-                     <a href="{% url 'board_topics' board_name.pk %}">{{ boards.name }}</a>
-                     <small class="text-muted d-block">{{ boards.description }}</small>
-                  </td>
-                  <td class="align-middle">0</td>
-                  <td class="align-middle">0</td>
-                  <td></td>
-               </tr>
-{% endfor %}
+            {% for topic in boards_list %}
+                <tr>
+                    <td><a href="#">{{ topic.board_name }}</a></td>
+                    <td><a href="#">{{ topic.subject }}</a></td>
+                    <td>{{ topic.starter.username  }}</td>
+                    <td>{{ topic.last_updated }}</td>
+                </tr>
+            {% endfor %}
             </tbody>
          </table>
-   {% endblock %}
-      </div>
-</div>
-{#   </body>#}
-{#</html>#}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{% endblock %}
 
 
 
