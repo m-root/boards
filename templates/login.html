@@ -1,11 +1,10 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block body %}
+{% extends 'base_accounts.html' %}
+
+{#{% load static %}#}
+{% block title %}Log in to Django Boards{% endblock %}
+{% block content %}
+
     <div class="container">
-        <h1 class="text-center logo my-4">
-{#            <a href="{% url 'home' %}">Django Boards</a>#}
-            Django Boards
-        </h1>
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-8 col-sm-10">
                 <div class="card">
@@ -25,5 +24,5 @@
                 </div>
             </div>
         </div>
-    </div>
-{% endblock body %}
+{#    </div>#}
+{% endblock content %}
