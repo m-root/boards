@@ -8,7 +8,7 @@ from .models import Board, Topic, Post
 def home(request):
     boards_list = Topic.objects.all()
     # boards_list = list()
-    return render(request, 'home.html',{'boards_list':boards_list})
+    return render(request, 'home.html', {'boards_list':boards_list})
 
 
 
