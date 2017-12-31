@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{#{% load form_tags %}#}
+
+{% block stylesheet %}
+{% endblock %}
+{% block body %}
+    <div class="container">
+    <h1 class="text-center logo my-4"> Django Boards</h1>
+    <div class="row justify-content-center">
+{#    <div class="col-lg-6 col-md-8 col-sm-10">#}
+    {% block content %}
+
+
+    {% endblock %}
+{#    </div>#}
+    </div>
+    </div>
+
+{% endblock %}
