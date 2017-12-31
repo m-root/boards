@@ -149,4 +149,12 @@ STATICFILES_FINDERS =[
 ]
 
 LOGOUT_REDIRECT_URL = 'home'
+
 LOGIN_REDIRECT_URL = 'home'
+#
+# EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+#
+
+#  EMAIL_FILE_PATH = '/templates' # change this to a proper location
+
+EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
